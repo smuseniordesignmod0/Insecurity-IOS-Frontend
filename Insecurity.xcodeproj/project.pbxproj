@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		026A38F61F56EFEA00F64C34 /* LogansStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026A38F51F56EFEA00F64C34 /* LogansStoryboard.storyboard */; };
+		026A38F81F56F00700F64C34 /* GabesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026A38F71F56F00700F64C34 /* GabesStoryboard.storyboard */; };
 		C05EB4801F56159700C85444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB47F1F56159700C85444 /* AppDelegate.swift */; };
 		C05EB4821F56159700C85444 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB4811F56159700C85444 /* ViewController.swift */; };
 		C05EB4851F56159700C85444 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05EB4831F56159700C85444 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		026A38F51F56EFEA00F64C34 /* LogansStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogansStoryboard.storyboard; sourceTree = "<group>"; };
+		026A38F71F56F00700F64C34 /* GabesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GabesStoryboard.storyboard; sourceTree = "<group>"; };
 		C05EB47C1F56159700C85444 /* Insecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05EB47F1F56159700C85444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C05EB4811F56159700C85444 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				C05EB47F1F56159700C85444 /* AppDelegate.swift */,
 				C05EB4811F56159700C85444 /* ViewController.swift */,
 				C05EB4831F56159700C85444 /* Main.storyboard */,
+				026A38F51F56EFEA00F64C34 /* LogansStoryboard.storyboard */,
+				026A38F71F56F00700F64C34 /* GabesStoryboard.storyboard */,
 				C05EB4861F56159700C85444 /* Assets.xcassets */,
 				C05EB4881F56159700C85444 /* LaunchScreen.storyboard */,
 				C05EB48B1F56159700C85444 /* Info.plist */,
@@ -238,6 +244,8 @@
 				C05EB48A1F56159700C85444 /* LaunchScreen.storyboard in Resources */,
 				C05EB4871F56159700C85444 /* Assets.xcassets in Resources */,
 				C05EB4851F56159700C85444 /* Main.storyboard in Resources */,
+				026A38F81F56F00700F64C34 /* GabesStoryboard.storyboard in Resources */,
+				026A38F61F56EFEA00F64C34 /* LogansStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +522,7 @@
 				C05EB4A61F56159700C85444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C05EB4A71F56159700C85444 /* Build configuration list for PBXNativeTarget "InsecurityTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +531,7 @@
 				C05EB4A91F56159700C85444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C05EB4AA1F56159700C85444 /* Build configuration list for PBXNativeTarget "InsecurityUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +540,7 @@
 				C05EB4AC1F56159700C85444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
