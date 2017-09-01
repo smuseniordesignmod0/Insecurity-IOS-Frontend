@@ -8,6 +8,7 @@ target 'Insecurity' do
   # Pods for Insecurity
   
    pod 'MaterialComponents'
+   pod 'UICircularProgressRing'
   
 
   target 'InsecurityTests' do
