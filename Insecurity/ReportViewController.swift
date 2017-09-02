@@ -21,7 +21,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //fake data
     let section = ["Devices", "Open Ports"]
-    let items = [["Device 1", "Device 2", "Device 3"], ["Port 1", "Port 2", "Port 3"]]
+    let items = [["Device 1", "Device 2", "Device 3", "Device 4", "Device 5"], ["Port 1", "Port 2", "Port 3", "Port 4", "Port 5", "Port 6"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
