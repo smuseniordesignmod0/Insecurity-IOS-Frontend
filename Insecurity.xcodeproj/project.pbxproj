@@ -19,6 +19,9 @@
 		C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */; };
 		C0A960E21F57C71E008B8DD0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960E11F57C71E008B8DD0 /* Colors.swift */; };
 		C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */; };
+		C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */; };
+		C0D4C3F91F5C9E340013AFDF /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4C3F71F5C9E340013AFDF /* History.storyboard */; };
+		C0D4C3FB1F5C9E5C0013AFDF /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */; };
 		D253FB72CBEFB56461801E25 /* Pods_Insecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CF8B39C8F76B66CEFDB7B1 /* Pods_Insecurity.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,9 @@
 		C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		C0A960E11F57C71E008B8DD0 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReportViewController.swift; sourceTree = "<group>"; };
+		C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		C0D4C3F81F5C9E340013AFDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
+		C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		C5CF8B39C8F76B66CEFDB7B1 /* Pods_Insecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFA07F0098B92E18CF54387 /* Pods-InsecurityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsecurityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InsecurityTests/Pods-InsecurityTests.release.xcconfig"; sourceTree = "<group>"; };
 		D2015FB469A8AFC7EB015281 /* Pods_InsecurityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InsecurityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +153,10 @@
 				C05EB4811F56159700C85444 /* ViewController.swift */,
 				C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */,
 				C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */,
+				C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */,
 				C05EB4831F56159700C85444 /* Main.storyboard */,
+				C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */,
+				C0D4C3F71F5C9E340013AFDF /* History.storyboard */,
 				C0A960E01F57C710008B8DD0 /* Extensions */,
 				C05EB4861F56159700C85444 /* Assets.xcassets */,
 				C05EB4881F56159700C85444 /* LaunchScreen.storyboard */,
@@ -304,6 +313,8 @@
 				C05EB48A1F56159700C85444 /* LaunchScreen.storyboard in Resources */,
 				C05EB4871F56159700C85444 /* Assets.xcassets in Resources */,
 				C05EB4851F56159700C85444 /* Main.storyboard in Resources */,
+				C0D4C3F91F5C9E340013AFDF /* History.storyboard in Resources */,
+				C0D4C3FB1F5C9E5C0013AFDF /* Report.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +480,7 @@
 				C05EB4821F56159700C85444 /* ViewController.swift in Sources */,
 				C0A960E21F57C71E008B8DD0 /* Colors.swift in Sources */,
 				C05EB4801F56159700C85444 /* AppDelegate.swift in Sources */,
+				C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */,
 				C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */,
 				C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */,
 			);
@@ -520,6 +532,14 @@
 				C05EB4891F56159700C85444 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C0D4C3F71F5C9E340013AFDF /* History.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0D4C3F81F5C9E340013AFDF /* Base */,
+			);
+			name = History.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

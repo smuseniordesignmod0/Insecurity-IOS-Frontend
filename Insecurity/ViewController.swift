@@ -71,11 +71,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func scanButtonPressed(_ sender: Any) {
+        scanButton.isUserInteractionEnabled = false
+        scanButton.setTitle("Scanning", for: .normal)
         progressBar.setProgress(value: 100, animationDuration: 5.0) {
             print("Done animating!")
             self.scoreView.isHidden = false
             self.scoreLabel.text = "Your Network Security Score: A"
-            // Do anything your heart desires...
+            self.scanButton.isUserInteractionEnabled = true
         }
     }
     
@@ -83,6 +85,7 @@ class ViewController: UIViewController {
     @IBAction func newScanButtonPressed(_ sender: Any) {
         scoreView.isHidden = true
         scanButton.isUserInteractionEnabled = false
+         scanButton.setTitle("Scan", for: .normal)
         progressBar.setProgress(value: 0, animationDuration: 1) {
             self.scanButton.isUserInteractionEnabled = true
         }
