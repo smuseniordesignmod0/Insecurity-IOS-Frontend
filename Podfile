@@ -9,7 +9,7 @@ target 'Insecurity' do
   
    pod 'MaterialComponents'
    pod 'UICircularProgressRing'
-  
+   pod 'ObjectMapper', '~> 2.2' 
 
   target 'InsecurityTests' do
     inherit! :search_paths

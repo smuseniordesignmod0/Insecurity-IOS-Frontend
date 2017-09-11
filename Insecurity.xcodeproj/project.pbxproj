@@ -16,6 +16,8 @@
 		C05EB48A1F56159700C85444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05EB4881F56159700C85444 /* LaunchScreen.storyboard */; };
 		C05EB4951F56159700C85444 /* InsecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB4941F56159700C85444 /* InsecurityTests.swift */; };
 		C05EB4A01F56159700C85444 /* InsecurityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB49F1F56159700C85444 /* InsecurityUITests.swift */; };
+		C08C617C1F66F18C00024EA0 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C617B1F66F18C00024EA0 /* ReportModel.swift */; };
+		C08C61801F66F1F200024EA0 /* DeviceReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */; };
 		C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */; };
 		C0A960E21F57C71E008B8DD0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960E11F57C71E008B8DD0 /* Colors.swift */; };
 		C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */; };
@@ -61,6 +63,8 @@
 		C05EB49B1F56159700C85444 /* InsecurityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsecurityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05EB49F1F56159700C85444 /* InsecurityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsecurityUITests.swift; sourceTree = "<group>"; };
 		C05EB4A11F56159700C85444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08C617B1F66F18C00024EA0 /* ReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportModel.swift; path = ../ReportModel.swift; sourceTree = "<group>"; };
+		C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReportModel.swift; sourceTree = "<group>"; };
 		C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		C0A960E11F57C71E008B8DD0 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReportViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 		C05EB47E1F56159700C85444 /* Insecurity */ = {
 			isa = PBXGroup;
 			children = (
+				C08C617B1F66F18C00024EA0 /* ReportModel.swift */,
+				C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */,
 				C05EB47F1F56159700C85444 /* AppDelegate.swift */,
 				C05EB4811F56159700C85444 /* ViewController.swift */,
 				C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */,
@@ -483,6 +489,8 @@
 				C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */,
 				C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */,
 				C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */,
+				C08C617C1F66F18C00024EA0 /* ReportModel.swift in Sources */,
+				C08C61801F66F1F200024EA0 /* DeviceReportModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
