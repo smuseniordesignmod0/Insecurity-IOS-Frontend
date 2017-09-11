@@ -1,5 +1,5 @@
 //
-//  DeviceReportModel.swift
+//  RouterModel.swift
 //  Insecurity
 //
 //  Created by Gabriel I Leyva Merino on 9/11/17.
@@ -9,8 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct DeviceReportModel : Mappable {
-    
+struct RouterModel: Mappable {
 
     var vulnerabilityScore: Float?
     var ip: String?
@@ -20,22 +19,21 @@ struct DeviceReportModel : Mappable {
     var hostCVE: [CVEModel]?
     var services: [ServiceModel]?
     var idAccuracy: Float?
-    
+    var publicID: String?
     
     init?(map: Map) {
-
+        
     }
     
     mutating func mapping(map: Map) {
-        vulnerabilityScore <- map["Device/Vulnerability_Score"]
-        ip <- map["Device/IP"]
-        macAddress <- map["Device/MAC_Address"]
-        vendor <- map["Device/Vendor"]
-        hostCPE <- map["Device/host_CPE_list"]
-        services <- map["Device/Services"]
-        idAccuracy <- map["Device/Identification_Accuracy"]
-
+        vulnerabilityScore <- map["Router/Vulnerability_Score"]
+        ip <- map["Router/IP"]
+        macAddress <- map["Router/MAC_Address"]
+        vendor <- map["Router/Vendor"]
+        hostCPE <- map["Router/host_CPE_list"]
+        services <- map["Router/Services"]
+        idAccuracy <- map["Router/Identification_Accuracy"]
+        publicID <- map["Router/publicIP"]
     }
 }
-
 

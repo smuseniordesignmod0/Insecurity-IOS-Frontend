@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sgf-fi-Ooo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1gq-Bf-pbT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lth-t0-gZf">
@@ -84,18 +88,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Network Report" id="68q-Qo-UcV">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="NDH-Qr-MAo">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zdf-7c-3Ge">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="zUo-1t-tFG"/>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
                     <connections>
                         <outlet property="firewallLabel" destination="kyy-fa-136" id="f5d-lW-Pgr"/>
                         <outlet property="networkNameLabel" destination="lth-t0-gZf" id="B6u-mF-e2f"/>
+                        <outlet property="saveButton" destination="zUo-1t-tFG" id="TpH-AM-zIW"/>
                         <outlet property="scoreLabel" destination="R47-yr-1mp" id="9UW-a0-h3I"/>
                         <outlet property="tableView" destination="rgS-N8-aDk" id="Tz6-Cd-cXt"/>
                         <outlet property="wirelessLabel" destination="Kvg-ub-nhs" id="l43-OY-aPb"/>

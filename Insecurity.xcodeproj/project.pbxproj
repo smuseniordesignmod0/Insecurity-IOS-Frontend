@@ -16,6 +16,10 @@
 		C05EB48A1F56159700C85444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05EB4881F56159700C85444 /* LaunchScreen.storyboard */; };
 		C05EB4951F56159700C85444 /* InsecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB4941F56159700C85444 /* InsecurityTests.swift */; };
 		C05EB4A01F56159700C85444 /* InsecurityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB49F1F56159700C85444 /* InsecurityUITests.swift */; };
+		C062E2EC1F67479A0036DEDF /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062E2EB1F67479A0036DEDF /* ServiceModel.swift */; };
+		C062E2EE1F674F480036DEDF /* CVEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062E2ED1F674F480036DEDF /* CVEModel.swift */; };
+		C062E2F01F6750C70036DEDF /* CPEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062E2EF1F6750C70036DEDF /* CPEModel.swift */; };
+		C07FFF1C1F67320700C85248 /* RouterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07FFF1B1F67320700C85248 /* RouterModel.swift */; };
 		C08C617C1F66F18C00024EA0 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C617B1F66F18C00024EA0 /* ReportModel.swift */; };
 		C08C61801F66F1F200024EA0 /* DeviceReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */; };
 		C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */; };
@@ -63,6 +67,10 @@
 		C05EB49B1F56159700C85444 /* InsecurityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsecurityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05EB49F1F56159700C85444 /* InsecurityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsecurityUITests.swift; sourceTree = "<group>"; };
 		C05EB4A11F56159700C85444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C062E2EB1F67479A0036DEDF /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		C062E2ED1F674F480036DEDF /* CVEModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVEModel.swift; sourceTree = "<group>"; };
+		C062E2EF1F6750C70036DEDF /* CPEModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEModel.swift; sourceTree = "<group>"; };
+		C07FFF1B1F67320700C85248 /* RouterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterModel.swift; sourceTree = "<group>"; };
 		C08C617B1F66F18C00024EA0 /* ReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportModel.swift; path = ../ReportModel.swift; sourceTree = "<group>"; };
 		C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReportModel.swift; sourceTree = "<group>"; };
 		C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
@@ -153,8 +161,7 @@
 		C05EB47E1F56159700C85444 /* Insecurity */ = {
 			isa = PBXGroup;
 			children = (
-				C08C617B1F66F18C00024EA0 /* ReportModel.swift */,
-				C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */,
+				C07FFF1A1F672ED900C85248 /* Models */,
 				C05EB47F1F56159700C85444 /* AppDelegate.swift */,
 				C05EB4811F56159700C85444 /* ViewController.swift */,
 				C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */,
@@ -187,6 +194,19 @@
 				C05EB4A11F56159700C85444 /* Info.plist */,
 			);
 			path = InsecurityUITests;
+			sourceTree = "<group>";
+		};
+		C07FFF1A1F672ED900C85248 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C08C617B1F66F18C00024EA0 /* ReportModel.swift */,
+				C08C617F1F66F1F200024EA0 /* DeviceReportModel.swift */,
+				C07FFF1B1F67320700C85248 /* RouterModel.swift */,
+				C062E2EB1F67479A0036DEDF /* ServiceModel.swift */,
+				C062E2ED1F674F480036DEDF /* CVEModel.swift */,
+				C062E2EF1F6750C70036DEDF /* CPEModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C0A960E01F57C710008B8DD0 /* Extensions */ = {
@@ -488,9 +508,13 @@
 				C05EB4801F56159700C85444 /* AppDelegate.swift in Sources */,
 				C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */,
 				C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */,
+				C062E2EC1F67479A0036DEDF /* ServiceModel.swift in Sources */,
 				C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */,
+				C07FFF1C1F67320700C85248 /* RouterModel.swift in Sources */,
 				C08C617C1F66F18C00024EA0 /* ReportModel.swift in Sources */,
 				C08C61801F66F1F200024EA0 /* DeviceReportModel.swift in Sources */,
+				C062E2F01F6750C70036DEDF /* CPEModel.swift in Sources */,
+				C062E2EE1F674F480036DEDF /* CVEModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     //fake data
     let section = ["Devices", "Open Ports"]
     let items = [["Device 1", "Device 2", "Device 3", "Device 4", "Device 5"], ["Port 1", "Port 2", "Port 3", "Port 4", "Port 5", "Port 6"]]
@@ -26,6 +27,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
+        prepareSaveButton()
        
     }
     
@@ -37,6 +39,10 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = false
+    }
+    
+    fileprivate func prepareSaveButton(){
+        saveButton.tintColor = .inGreen
     }
     
     // MARK: - Table view data source and delegate

@@ -11,17 +11,23 @@ import ObjectMapper
 
 struct ReportModel : Mappable {
     
-    var id: String?
-    var name: String?
-    var deviceReport: DeviceReportModel?
+    var devices: [DeviceReportModel]?
+    var router: RouterModel?
+    var vulnerabilityScore: Float?
+    var vulnerabilityGrade: String?
+    var wirelessSecurityProtocols: [String]?
+    
     
     init?(map: Map) {
         
     }
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["groupName"]
+        devices <- map["Report/Devices"]
+        router <- map["Report/Router"]
+        vulnerabilityScore <- map["Report/Vulnerability_Score"]
+        vulnerabilityGrade <- map["Report/Vulnerability_Grade"]
+        wirelessSecurityProtocols <- map["Report/Wireless_Security_Protocols"]
         
     }
 }

@@ -9,7 +9,8 @@
 import UIKit
 import MaterialComponents
 import UICircularProgressRing
-
+import Alamofire
+import ObjectMapper
 class ViewController: UIViewController {
 
     @IBOutlet weak var historyButton: UIBarButtonItem!
@@ -71,9 +72,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func scanButtonPressed(_ sender: Any) {
+        scan()
         scanButton.isUserInteractionEnabled = false
         scanButton.setTitle("Scanning", for: .normal)
-        progressBar.setProgress(value: 100, animationDuration: 5.0) {
+        progressBar.setProgress(value: 100, animationDuration: 4.0) {
             print("Done animating!")
             self.scoreView.isHidden = false
             self.scoreLabel.text = "Your Network Security Score: A"
@@ -91,6 +93,25 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    fileprivate func scan(){
+        Alamofire.request("http://api.insecurity/Scan/id/Report").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("Working")
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+        }
+    }
+    
+    
 
 }
 
