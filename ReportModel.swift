@@ -23,11 +23,11 @@ struct ReportModel : Mappable {
     }
     
     mutating func mapping(map: Map) {
-        devices <- map["Report/Devices"]
-        router <- map["Report/Router"]
-        vulnerabilityScore <- map["Report/Vulnerability_Score"]
-        vulnerabilityGrade <- map["Report/Vulnerability_Grade"]
-        wirelessSecurityProtocols <- map["Report/Wireless_Security_Protocols"]
+        devices <- map["Devices"]
+        router <- map["Router"]
+        vulnerabilityScore <- map["Vulnerability_Score"]
+        vulnerabilityGrade <- map["Vulnerability_Grade"]
+        wirelessSecurityProtocols <- map["Wireless_Security_Protocols"]
         
     }
 }

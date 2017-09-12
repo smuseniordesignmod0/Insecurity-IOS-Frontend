@@ -24,10 +24,14 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let section = ["Devices", "Open Ports"]
     let items = [["Device 1", "Device 2", "Device 3", "Device 4", "Device 5"], ["Port 1", "Port 2", "Port 3", "Port 4", "Port 5", "Port 6"]]
     
+    var report: ReportModel?
+    var deviceReport: DeviceReportModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
         prepareSaveButton()
+        prepareLabels()
        
     }
     
@@ -45,6 +49,12 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         saveButton.tintColor = .inGreen
     }
     
+    fileprivate func prepareLabels() {
+        scoreLabel.text = "Security Score: " + (report?.vulnerabilityGrade)!
+        
+        
+    }
+    
     // MARK: - Table view data source and delegate
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -52,7 +62,13 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return self.items[section].count
+        if section == 0 {
+            return (self.report?.devices?.count)!
+        } else if section == 1 {
+            return (self.report?.router?.services?.count)!
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -71,10 +87,10 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
-        cell.textLabel?.text = items[indexPath.section][indexPath.row]
-        
         if indexPath.section == 0 {
-            //add more icon on the right side
+            cell.textLabel?.text = self.report?.devices?[indexPath.row].ip
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = "Port: " + String(describing: self.report!.router!.services![indexPath.row].port!)
         }
         
         return cell
@@ -91,6 +107,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.selectionStyle = .none
         
         if indexPath.section == 0 {
+            deviceReport = report?.devices?[indexPath.row]
             performSegue(withIdentifier: "viewDevice", sender: cell)
             print("Device Selected")
         }
@@ -102,5 +119,13 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         header.textLabel?.textColor = .white
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "viewDevice") {
+
+            let vc = segue.destination as! DeviceReportViewController
+            vc.deviceReport = self.deviceReport
+        }
+    }
+
 
 }

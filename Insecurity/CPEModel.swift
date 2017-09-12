@@ -27,13 +27,13 @@ struct CPEModel: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        cpeString <- map["CPE/cpeString"]
-        product <- map["CPE/getProduct"]
-        update <- map["CPE/getUpdate"]
-        vendor <- map["CPE/getVendor"]
-        isApplication <- map["CPE/isApplication"]
-        isHardware <- map["CPE/isHardware"]
-        isOperatingSystem <- map["CEP/isOperatingSystem"]
+        cpeString <- map["cpeString"]
+        product <- map["getProduct"]
+        update <- map["getUpdate"]
+        vendor <- map["getVendor"]
+        isApplication <- map["isApplication"]
+        isHardware <- map["isHardware"]
+        isOperatingSystem <- map["isOperatingSystem"]
     }
     
 }

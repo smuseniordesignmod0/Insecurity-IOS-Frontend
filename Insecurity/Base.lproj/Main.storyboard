@@ -154,7 +154,7 @@
                         <barButtonItem key="rightBarButtonItem" image="HistoryIcon" id="y8c-Ta-wh5">
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="8yS-Ud-Lth" kind="show" id="1Sf-rK-AVS"/>
+                                <segue destination="8yS-Ud-Lth" kind="show" identifier="report" id="1Sf-rK-AVS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

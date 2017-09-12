@@ -27,13 +27,13 @@ struct DeviceReportModel : Mappable {
     }
     
     mutating func mapping(map: Map) {
-        vulnerabilityScore <- map["Device/Vulnerability_Score"]
-        ip <- map["Device/IP"]
-        macAddress <- map["Device/MAC_Address"]
-        vendor <- map["Device/Vendor"]
-        hostCPE <- map["Device/host_CPE_list"]
-        services <- map["Device/Services"]
-        idAccuracy <- map["Device/Identification_Accuracy"]
+        vulnerabilityScore <- map["Vulnerability_Score"]
+        ip <- map["IP"]
+        macAddress <- map["MAC_Address"]
+        vendor <- map["Vendor"]
+        hostCPE <- map["host_CPE_list"]
+        services <- map["Services"]
+        idAccuracy <- map["Identification_Accuracy"]
 
     }
 }

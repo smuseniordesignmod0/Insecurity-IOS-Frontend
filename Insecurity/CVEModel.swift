@@ -19,9 +19,9 @@ struct CVEModel: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        vulnID <- map["CVE/Vuln_ID"]
-        summary <- map["CVE/Summary"]
-        CVSSSeverity <- map["CVE/CVSS_Severity"]
+        vulnID <- map["Vuln_ID"]
+        summary <- map["Summary"]
+        CVSSSeverity <- map["CVSS_Severity"]
     }
     
 }

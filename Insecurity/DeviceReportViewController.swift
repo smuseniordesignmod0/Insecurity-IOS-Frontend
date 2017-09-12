@@ -19,12 +19,15 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var servicesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var deviceReport:DeviceReportModel?
+    
     let section = ["Open Ports"]
     let items = [["Port 1", "Port 2", "Port 3"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
+        prepareLabels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +40,13 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
         tableView.bounces = false
     }
     
+    fileprivate func prepareLabels() {
+        ipLabel.text = deviceReport?.ip
+        macLabel.text = deviceReport?.macAddress
+        servicesLabel.text = String(describing: deviceReport?.vulnerabilityScore)
+        
+    }
+    
     // MARK: - Table view data source and delegate
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -44,7 +54,7 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return self.items[section].count
+        return (self.deviceReport?.services?.count)!
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -63,7 +73,7 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
-        cell.textLabel?.text = items[indexPath.section][indexPath.row]
+        cell.textLabel?.text = "Port: " + String(describing: self.deviceReport!.services![indexPath.row].port!)
                 
         return cell
     }

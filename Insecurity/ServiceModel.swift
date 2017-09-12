@@ -25,15 +25,15 @@ struct ServiceModel: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        serviceProtocol <- map["Service/protocol"]
-        serviceName <- map["Service/name"]
-        port <- map["Service/port"]
-        state <- map["Service/state"]
-        reason <- map["Service/reason"]
-        banner <- map["Service/banner"]
-        product <- map["Service/product"]
-        serviceCVE <- map["Service/service_CVE_list"]
-        serviceCPE <- map["Service/service_CPE_list"]
+        serviceProtocol <- map["protocol"]
+        serviceName <- map["name"]
+        port <- map["port"]
+        state <- map["state"]
+        reason <- map["reason"]
+        banner <- map["banner"]
+        product <- map["product"]
+        serviceCVE <- map["service_CVE_list"]
+        serviceCPE <- map["service_CPE_list"]
         
     }
 }

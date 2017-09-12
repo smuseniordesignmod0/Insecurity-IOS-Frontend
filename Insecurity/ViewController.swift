@@ -26,6 +26,9 @@ class ViewController: UIViewController {
 
 
     @IBOutlet weak var viewReportButton: MDCRaisedButton!
+    
+    var report : ReportModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -72,13 +75,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func scanButtonPressed(_ sender: Any) {
-        scan()
+        readJson()
         scanButton.isUserInteractionEnabled = false
         scanButton.setTitle("Scanning", for: .normal)
         progressBar.setProgress(value: 100, animationDuration: 4.0) {
             print("Done animating!")
             self.scoreView.isHidden = false
-            self.scoreLabel.text = "Your Network Security Score: A"
+            self.scoreLabel.text = "Your Network Security Score: " + (self.report?.vulnerabilityGrade)!
             self.scanButton.isUserInteractionEnabled = true
         }
     }
@@ -108,6 +111,54 @@ class ViewController: UIViewController {
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
+        }
+    }
+    
+//   fileprivate func loadJson(forFilename fileName: String){
+//        
+//        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+//            if let data = NSData(contentsOf: url) {
+//                do {
+//                   // let dictionary = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
+//                    
+//                    report?.mapping(map: data as! Map)
+//                    
+//    
+//                } catch {
+//                    print("Error!! Unable to parse  \(fileName).json")
+//                }
+//            }
+//            print("Error!! Unable to load  \(fileName).json")
+//        }
+//    
+//    }
+    
+    fileprivate func readJson() {
+        do {
+            if let file = Bundle.main.url(forResource: "mock_report", withExtension: "json") {
+                let data = try Data(contentsOf: file)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if let object = json as? [String: Any] {
+                    // json is a dictionary
+                    report = ReportModel(JSON: object)
+                    print(report)
+                } else if let object = json as? [Any] {
+                    // json is an array
+                    print(object)
+                } else {
+                    print("JSON is invalid")
+                }
+            } else {
+                print("no file")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ReportViewController {
+            vc.report = self.report
         }
     }
     

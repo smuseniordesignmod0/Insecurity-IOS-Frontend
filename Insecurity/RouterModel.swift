@@ -26,14 +26,14 @@ struct RouterModel: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        vulnerabilityScore <- map["Router/Vulnerability_Score"]
-        ip <- map["Router/IP"]
-        macAddress <- map["Router/MAC_Address"]
-        vendor <- map["Router/Vendor"]
-        hostCPE <- map["Router/host_CPE_list"]
-        services <- map["Router/Services"]
-        idAccuracy <- map["Router/Identification_Accuracy"]
-        publicID <- map["Router/publicIP"]
+        vulnerabilityScore <- map["Vulnerability_Score"]
+        ip <- map["IP"]
+        macAddress <- map["MAC_Address"]
+        vendor <- map["Vendor"]
+        hostCPE <- map["host_CPE_list"]
+        services <- map["Services"]
+        idAccuracy <- map["Identification_Accuracy"]
+        publicID <- map["publicIP"]
     }
 }
 
