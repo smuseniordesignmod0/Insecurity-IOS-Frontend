@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 import MaterialComponents
+import ObjectMapper
 
 class HistoryViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     let section = ["History"]
     let items = [["Report on 05/10/2014", "Report on 06/11/2015", "Report on 11/10/2016", "Report on 07/12/2017"]]
+    var reports : [ReportModel]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,16 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = false
+    }
+    
+    
+    fileprivate func loadHistory(){
+       let tempReports = UserDefaults.standard.stringArray(forKey: "Reports")
+        
+        for report in tempReports! {
+            let r = ReportModel(JSONString: report)
+            reports?.append(r!)
+        }
     }
     
     // MARK: - Table view data source and delegate

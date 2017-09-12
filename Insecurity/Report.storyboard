@@ -88,7 +88,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Network Report" id="68q-Qo-UcV">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="zUo-1t-tFG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="zUo-1t-tFG">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="JEH-Jy-8E7" id="JSZ-zG-Np4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="firewallLabel" destination="kyy-fa-136" id="f5d-lW-Pgr"/>

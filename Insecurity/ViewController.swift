@@ -141,7 +141,6 @@ class ViewController: UIViewController {
                 if let object = json as? [String: Any] {
                     // json is a dictionary
                     report = ReportModel(JSON: object)
-                    print(report)
                 } else if let object = json as? [Any] {
                     // json is an array
                     print(object)

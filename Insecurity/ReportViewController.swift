@@ -39,6 +39,15 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewWillAppear(animated)
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        var reports = UserDefaults.standard.stringArray(forKey: "Reports")
+        
+        let JSONString = report?.toJSONString(prettyPrint: true)
+        reports?.append(JSONString!)
+        
+        UserDefaults.standard.set(reports, forKey: "Reports")
+    }
+    
     fileprivate func prepareTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -127,5 +136,6 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+  
 
 }

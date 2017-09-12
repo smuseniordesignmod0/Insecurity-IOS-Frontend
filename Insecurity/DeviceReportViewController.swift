@@ -41,11 +41,13 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     fileprivate func prepareLabels() {
-        ipLabel.text = deviceReport?.ip
-        macLabel.text = deviceReport?.macAddress
-        servicesLabel.text = String(describing: deviceReport?.vulnerabilityScore)
-        
+        ipLabel.text = "IP: " + (deviceReport?.ip)!
+        macLabel.text = "Mac Address: " + (deviceReport?.macAddress)!
+        servicesLabel.text = "Service: " + deviceReport!.services![0].serviceName!
+        osLabel.text = "Accuracy: " + String(describing: deviceReport!.idAccuracy!)
+ 
     }
+    
     
     // MARK: - Table view data source and delegate
     
