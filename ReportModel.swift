@@ -16,7 +16,7 @@ struct ReportModel : Mappable {
     var vulnerabilityScore: Float?
     var vulnerabilityGrade: String?
     var wirelessSecurityProtocols: [String]?
-    
+    var timeStamp: String?
     
     init?(map: Map) {
         
@@ -28,6 +28,7 @@ struct ReportModel : Mappable {
         vulnerabilityScore <- map["Vulnerability_Score"]
         vulnerabilityGrade <- map["Vulnerability_Grade"]
         wirelessSecurityProtocols <- map["Wireless_Security_Protocols"]
+        timeStamp <- map["timeStamp"]
         
     }
 }

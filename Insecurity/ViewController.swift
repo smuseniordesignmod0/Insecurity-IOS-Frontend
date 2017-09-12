@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         prepareViewReportButton()
         scoreView.isHidden = true
         historyButton.tintColor = .inBlue
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +72,8 @@ class ViewController: UIViewController {
         viewReportButton.setTitleColor(.white, for: .normal)
         viewReportButton.layer.cornerRadius = 5
     }
+    
+    
 
     @IBAction func scanButtonPressed(_ sender: Any) {
         readJson()

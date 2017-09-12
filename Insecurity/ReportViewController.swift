@@ -40,7 +40,19 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let result = formatter.string(from: date)
+        report?.timeStamp = result
+        
         var reports = UserDefaults.standard.stringArray(forKey: "Reports")
+        
+        
+        if reports == nil {
+            reports = [String]()
+        }
         
         let JSONString = report?.toJSONString(prettyPrint: true)
         reports?.append(JSONString!)
@@ -60,7 +72,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     fileprivate func prepareLabels() {
         scoreLabel.text = "Security Score: " + (report?.vulnerabilityGrade)!
-        
+        networkNameLabel.text = "Public IP: " + (report?.router?.publicID)!
         
     }
     

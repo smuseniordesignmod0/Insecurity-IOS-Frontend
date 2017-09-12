@@ -33,7 +33,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Jc1-Sy-Oxr" kind="show" id="C7v-Ph-925"/>
+                                            <segue destination="Jc1-Sy-Oxr" kind="show" identifier="toReport" id="C7v-Ph-925"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

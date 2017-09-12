@@ -16,16 +16,20 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
     
     let section = ["History"]
     let items = [["Report on 05/10/2014", "Report on 06/11/2015", "Report on 11/10/2016", "Report on 07/12/2017"]]
-    var reports : [ReportModel]?
+    var reports: [ReportModel]?
+    var report: ReportModel?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
+        loadHistory()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     fileprivate func prepareTableView() {
@@ -34,16 +38,22 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
         tableView.bounces = false
     }
     
-    
     fileprivate func loadHistory(){
-       let tempReports = UserDefaults.standard.stringArray(forKey: "Reports")
+        reports = [ReportModel]()
+        let tempReports = UserDefaults.standard.stringArray(forKey: "Reports")
         
-        for report in tempReports! {
-            let r = ReportModel(JSONString: report)
-            reports?.append(r!)
+        if tempReports != nil {
+            
+            for report in tempReports! {
+                let r = ReportModel(JSONString: report)
+                reports?.append(r!)                
+            }
         }
+        
+        tableView.reloadData()
+        
     }
-    
+        
     // MARK: - Table view data source and delegate
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -51,7 +61,7 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return self.items[section].count
+        return self.reports!.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -59,6 +69,7 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return section.count
     }
     
@@ -70,7 +81,10 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
-        cell.textLabel?.text = items[indexPath.section][indexPath.row]
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "Report on " + (reports?[indexPath.row].timeStamp)!
+            self.report = reports?[indexPath.row]
+        }
         
         return cell
     }
@@ -79,5 +93,13 @@ class HistoryViewController : UIViewController, UITableViewDelegate, UITableView
         view.tintColor = .inBlue
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = .white
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toReport") {
+            
+            let vc = segue.destination as! ReportViewController
+            vc.report = self.report
+        }
     }
 }
