@@ -1,4 +1,13 @@
 //
+//  RouterViewController.swift
+//  Insecurity
+//
+//  Created by Gabriel I Leyva Merino on 9/13/17.
+//  Copyright © 2017 Insecurity. All rights reserved.
+//
+
+import Foundation
+//
 //  ReportViewController.swift
 //  Insecurity
 //
@@ -11,55 +20,32 @@ import UIKit
 import MaterialComponents
 
 
-class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-
-    @IBOutlet weak var routerButton: MDCRaisedButton!
-    @IBOutlet weak var gradeLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var vendorLabel: UILabel!
+    @IBOutlet weak var ipLabel: UILabel!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBOutlet weak var macLabel: UILabel!
     //fake data
-    let section = ["Devices"]
+    let section = ["CVE", "Services"]
     let items = [["Device 1", "Device 2", "Device 3", "Device 4", "Device 5"], ["Port 1", "Port 2", "Port 3", "Port 4", "Port 5", "Port 6"]]
     
-    var report: ReportModel?
-    var deviceReport: DeviceReportModel?
-    
+    var routerReport: RouterModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
-        prepareSaveButton()
-        prepareRouterButton()
         prepareLabels()
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let result = formatter.string(from: date)
-        report?.timeStamp = result
-        
-        var reports = UserDefaults.standard.stringArray(forKey: "Reports")
-        
-        
-        if reports == nil {
-            reports = [String]()
-        }
-        
-        let JSONString = report?.toJSONString(prettyPrint: true)
-        reports?.append(JSONString!)
-        
-        UserDefaults.standard.set(reports, forKey: "Reports")
-    }
     
     fileprivate func prepareTableView() {
         tableView.delegate = self
@@ -67,30 +53,28 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.bounces = false
     }
     
-    fileprivate func prepareSaveButton(){
-        saveButton.tintColor = .inGreen
-    }
-    
-    fileprivate func prepareRouterButton() {
-        routerButton.setBackgroundColor(.inBlue, for: .normal)
-        routerButton.setTitleColor(.white, for: .normal)
-        routerButton.layer.cornerRadius = 5
-    }
+
     
     fileprivate func prepareLabels() {
-        scoreLabel.text = "Overall Score: " + String(describing: (report?.vulnerabilityScore)!)
-        gradeLabel.text = "Network Grade: " + (report?.vulnerabilityGrade)!
+        scoreLabel.text = "Security Score: " + String(describing: (routerReport?.vulnerabilityScore)!)
+        
     }
     
     // MARK: - Table view data source and delegate
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-         return self.section[section]
+        return self.section[section]
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
         if section == 0 {
-            return (self.report?.devices?.count)!
+            if self.routerReport?.hostCVE?.count != nil {
+            return (self.routerReport?.hostCVE?.count)!
+            } else {
+                return 0
+            }
+        } else if section == 1 {
+            return (self.routerReport?.services?.count)!
         }
         
         return 0
@@ -113,8 +97,10 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.selectionStyle = .none
         
         if indexPath.section == 0 {
-            cell.textLabel?.text = self.report?.devices?[indexPath.row].ip
-        } 
+            cell.textLabel?.text = "ID: " +  (self.routerReport?.hostCVE?[indexPath.row].vulnID)!
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = "Port: " + String(describing: self.routerReport?.services?[indexPath.row].port)
+        }
         
         return cell
     }
@@ -129,11 +115,11 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.textLabel?.text = items[indexPath.section][indexPath.row]
         cell.selectionStyle = .none
         
-        if indexPath.section == 0 {
-            deviceReport = report?.devices?[indexPath.row]
-            performSegue(withIdentifier: "viewDevice", sender: cell)
-            print("Device Selected")
-        }
+//        if indexPath.section == 0 {
+//            
+//            performSegue(withIdentifier: "viewDevice", sender: cell)
+//            print("Device Selected")
+//        }
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -142,16 +128,14 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         header.textLabel?.textColor = .white
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "viewDevice") {
-            let vc = segue.destination as! DeviceReportViewController
-            vc.deviceReport = self.deviceReport
-        } else if (segue.identifier == "routerView") {
-            let vc = segue.destination as! RouterViewController
-            vc.routerReport = self.report?.router
-        }
-    }
-
-  
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "viewDevice") {
+//            
+//            let vc = segue.destination as! DeviceReportViewController
+//            vc.deviceReport = self.deviceReport
+//        }
+//    }
+//    
+    
+    
 }
