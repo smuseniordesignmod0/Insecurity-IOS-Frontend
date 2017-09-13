@@ -27,6 +27,9 @@
 		C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */; };
 		C0B2415D1F6768AB0098CCA1 /* mock_report.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B2415C1F6768AB0098CCA1 /* mock_report.json */; };
 		C0B6404D1F69A0C300FAFE26 /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B6404C1F69A0C300FAFE26 /* RouterViewController.swift */; };
+		C0B6404F1F69CC3600FAFE26 /* DetailReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B6404E1F69CC3600FAFE26 /* DetailReportViewController.swift */; };
+		C0B640511F69D7A100FAFE26 /* PortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B640501F69D7A100FAFE26 /* PortViewController.swift */; };
+		C0B640541F69D86600FAFE26 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B640531F69D86600FAFE26 /* ScannerViewModel.swift */; };
 		C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */; };
 		C0D4C3F91F5C9E340013AFDF /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4C3F71F5C9E340013AFDF /* History.storyboard */; };
 		C0D4C3FB1F5C9E5C0013AFDF /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */; };
@@ -80,6 +83,9 @@
 		C0A960E31F57CEBD008B8DD0 /* DeviceReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReportViewController.swift; sourceTree = "<group>"; };
 		C0B2415C1F6768AB0098CCA1 /* mock_report.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_report.json; sourceTree = "<group>"; };
 		C0B6404C1F69A0C300FAFE26 /* RouterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
+		C0B6404E1F69CC3600FAFE26 /* DetailReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReportViewController.swift; sourceTree = "<group>"; };
+		C0B640501F69D7A100FAFE26 /* PortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortViewController.swift; sourceTree = "<group>"; };
+		C0B640531F69D86600FAFE26 /* ScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		C0D4C3F81F5C9E340013AFDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
 		C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				C0B6404B1F6987EE00FAFE26 /* Storyboards */,
 				C0B6404A1F6980BE00FAFE26 /* View Controllers */,
 				C07FFF1A1F672ED900C85248 /* Models */,
+				C0B640521F69D83500FAFE26 /* ViewModels */,
 				C0A960E01F57C710008B8DD0 /* Extensions */,
 				C05EB4861F56159700C85444 /* Assets.xcassets */,
 				C05EB4881F56159700C85444 /* LaunchScreen.storyboard */,
@@ -225,6 +232,8 @@
 				C0A960DE1F57B006008B8DD0 /* ReportViewController.swift */,
 				C05EB4811F56159700C85444 /* ViewController.swift */,
 				C0B6404C1F69A0C300FAFE26 /* RouterViewController.swift */,
+				C0B6404E1F69CC3600FAFE26 /* DetailReportViewController.swift */,
+				C0B640501F69D7A100FAFE26 /* PortViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -237,6 +246,14 @@
 				C0D4C3F71F5C9E340013AFDF /* History.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C0B640521F69D83500FAFE26 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C0B640531F69D86600FAFE26 /* ScannerViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,12 +543,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B6404F1F69CC3600FAFE26 /* DetailReportViewController.swift in Sources */,
 				C05EB4821F56159700C85444 /* ViewController.swift in Sources */,
 				C0A960E21F57C71E008B8DD0 /* Colors.swift in Sources */,
 				C05EB4801F56159700C85444 /* AppDelegate.swift in Sources */,
 				C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */,
 				C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */,
 				C062E2EC1F67479A0036DEDF /* ServiceModel.swift in Sources */,
+				C0B640541F69D86600FAFE26 /* ScannerViewModel.swift in Sources */,
+				C0B640511F69D7A100FAFE26 /* PortViewController.swift in Sources */,
 				C0A960DF1F57B006008B8DD0 /* ReportViewController.swift in Sources */,
 				C07FFF1C1F67320700C85248 /* RouterModel.swift in Sources */,
 				C08C617C1F66F18C00024EA0 /* ReportModel.swift in Sources */,

@@ -30,16 +30,17 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var macLabel: UILabel!
     //fake data
-    let section = ["CVE", "Services"]
+    let section = ["Services", "CVE"]
     let items = [["Device 1", "Device 2", "Device 3", "Device 4", "Device 5"], ["Port 1", "Port 2", "Port 3", "Port 4", "Port 5", "Port 6"]]
     
     var routerReport: RouterModel?
+    var cveReport: CVEModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTableView()
         prepareLabels()
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +58,9 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     fileprivate func prepareLabels() {
         scoreLabel.text = "Security Score: " + String(describing: (routerReport?.vulnerabilityScore)!)
+        vendorLabel.text = "Vendor: " + (routerReport?.vendor)!
+        macLabel.text = "MAC Address: " + (routerReport?.macAddress)!
+        ipLabel.text = "IP Address: " + (routerReport?.ip)!
         
     }
     
@@ -69,12 +73,12 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
         if section == 0 {
             if self.routerReport?.hostCVE?.count != nil {
-            return (self.routerReport?.hostCVE?.count)!
+            return (self.routerReport?.services?.count)!
             } else {
                 return 0
             }
         } else if section == 1 {
-            return (self.routerReport?.services?.count)!
+            return (self.routerReport?.hostCVE?.count)!
         }
         
         return 0
@@ -97,9 +101,9 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.selectionStyle = .none
         
         if indexPath.section == 0 {
-            cell.textLabel?.text = "ID: " +  (self.routerReport?.hostCVE?[indexPath.row].vulnID)!
-        } else if indexPath.section == 1 {
             cell.textLabel?.text = "Port: " + String(describing: self.routerReport?.services?[indexPath.row].port)
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = "ID: " +  (self.routerReport?.hostCVE?[indexPath.row].vulnID)!
         }
         
         return cell
@@ -111,15 +115,14 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.separatorStyle = .none
         tableView.separatorStyle = .singleLine
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
-        cell.textLabel?.text = items[indexPath.section][indexPath.row]
-        cell.selectionStyle = .none
+       let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         
-//        if indexPath.section == 0 {
-//            
-//            performSegue(withIdentifier: "viewDevice", sender: cell)
-//            print("Device Selected")
-//        }
+        if indexPath.section == 1 {
+            self.cveReport = self.routerReport?.hostCVE?[indexPath.row]
+            performSegue(withIdentifier: "viewCVEReport", sender: cell)
+        } else if indexPath.section == 0 {
+            performSegue(withIdentifier: "viewPortReport", sender: cell)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -128,14 +131,15 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         header.textLabel?.textColor = .white
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "viewDevice") {
-//            
-//            let vc = segue.destination as! DeviceReportViewController
-//            vc.deviceReport = self.deviceReport
-//        }
-//    }
-//    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "viewCVEReport") {
+            let vc = segue.destination as! DetailReportViewController
+            vc.cveReport = self.cveReport
+        } else if segue.identifier == "viewPortReport" {
+            
+        }
+    }
+
     
     
 }

@@ -31,6 +31,7 @@ struct RouterModel: Mappable {
         macAddress <- map["MAC_Address"]
         vendor <- map["Vendor"]
         hostCPE <- map["host_CPE_list"]
+        hostCVE <- map["host_CVE_list"]
         services <- map["Services"]
         idAccuracy <- map["Identification_Accuracy"]
         publicID <- map["publicIP"]
