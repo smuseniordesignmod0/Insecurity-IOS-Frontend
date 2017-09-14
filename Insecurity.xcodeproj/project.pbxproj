@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02FD27BA1F6A02EF00590624 /* ScanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD27B91F6A02EF00590624 /* ScanModel.swift */; };
+		02FD27BC1F6A058600590624 /* ScanStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD27BB1F6A058600590624 /* ScanStatusModel.swift */; };
 		5A4649DC3D0FED9E1A62A147 /* Pods_InsecurityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2015FB469A8AFC7EB015281 /* Pods_InsecurityUITests.framework */; };
 		7F8AEC03F6D6CFE105F0D631 /* Pods_InsecurityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8636868837E6066FBDEF17BF /* Pods_InsecurityTests.framework */; };
 		C05EB4801F56159700C85444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05EB47F1F56159700C85444 /* AppDelegate.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02FD27B91F6A02EF00590624 /* ScanModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanModel.swift; sourceTree = "<group>"; };
+		02FD27BB1F6A058600590624 /* ScanStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanStatusModel.swift; sourceTree = "<group>"; };
 		1946EFFEDB64FEA4E34531A7 /* Pods-InsecurityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsecurityUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InsecurityUITests/Pods-InsecurityUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E6F515BA9234D9DD664B255 /* Pods-Insecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insecurity/Pods-Insecurity.release.xcconfig"; sourceTree = "<group>"; };
 		8636868837E6066FBDEF17BF /* Pods_InsecurityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InsecurityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +216,8 @@
 				C062E2EB1F67479A0036DEDF /* ServiceModel.swift */,
 				C062E2ED1F674F480036DEDF /* CVEModel.swift */,
 				C062E2EF1F6750C70036DEDF /* CPEModel.swift */,
+				02FD27B91F6A02EF00590624 /* ScanModel.swift */,
+				02FD27BB1F6A058600590624 /* ScanStatusModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -407,13 +413,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InsecurityUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1EC5B1FA5B90EC4E0BEB1E69 /* [CP] Check Pods Manifest.lock */ = {
@@ -422,13 +431,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Insecurity-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3396B695638E959CA8A49548 /* [CP] Copy Pods Resources */ = {
@@ -452,13 +464,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InsecurityTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		468233BB13BABDED74780FC6 /* [CP] Embed Pods Frameworks */ = {
@@ -527,9 +542,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Insecurity/Pods-Insecurity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -547,6 +579,8 @@
 				C05EB4821F56159700C85444 /* ViewController.swift in Sources */,
 				C0A960E21F57C71E008B8DD0 /* Colors.swift in Sources */,
 				C05EB4801F56159700C85444 /* AppDelegate.swift in Sources */,
+				02FD27BC1F6A058600590624 /* ScanStatusModel.swift in Sources */,
+				02FD27BA1F6A02EF00590624 /* ScanModel.swift in Sources */,
 				C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */,
 				C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */,
 				C062E2EC1F67479A0036DEDF /* ServiceModel.swift in Sources */,
