@@ -136,11 +136,12 @@
                         <outlet property="portLabel" destination="8Q9-Vk-tFv" id="80N-VV-5KQ"/>
                         <outlet property="serviceNameLabel" destination="7kH-BQ-HYP" id="2pU-mH-tNv"/>
                         <outlet property="tableView" destination="9Gh-nF-p4s" id="fWg-xu-Ptv"/>
+                        <segue destination="JUa-tl-uaI" kind="show" identifier="viewDetailReport" id="JvY-64-Qj4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ql-4J-lJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2783" y="1764"/>
+            <point key="canvasLocation" x="3353" y="1702"/>
         </scene>
         <!--Router View Controller-->
         <scene sceneID="bzM-vm-yUe">
@@ -296,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vo-k5-RNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3544.8000000000002" y="135.38230884557723"/>
+            <point key="canvasLocation" x="3825" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXH-Ya-Nq3">
@@ -368,10 +369,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pH-QO-wPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3544.8000000000002" y="946.77661169415296"/>
+            <point key="canvasLocation" x="4134" y="947"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OL9-8F-bex"/>
+        <segue reference="JvY-64-Qj4"/>
     </inferredMetricsTieBreakers>
 </document>

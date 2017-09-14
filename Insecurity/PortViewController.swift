@@ -18,6 +18,7 @@ class PortViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let section = ["CVE"]
     var serviceReport: ServiceModel?
+    var cveReport: CVEModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,5 +78,27 @@ class PortViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.tintColor = .inBlue
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = .white
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
+        
+        if indexPath.section == 0 {
+            self.cveReport = self.serviceReport?.serviceCVE?[indexPath.row]
+            performSegue(withIdentifier: "viewDetailReport", sender: cell)
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "viewDetailReport") {
+            let vc = segue.destination as! DetailReportViewController
+            vc.cveReport = self.cveReport
+        }
     }
 }
