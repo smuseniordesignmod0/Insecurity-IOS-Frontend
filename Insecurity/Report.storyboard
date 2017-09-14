@@ -91,7 +91,7 @@
         <!--Port View Controller-->
         <scene sceneID="lOF-AZ-EGJ">
             <objects>
-                <viewController id="FEQ-gA-Lpp" customClass="PortViewController" sceneMemberID="viewController">
+                <viewController id="FEQ-gA-Lpp" customClass="PortViewController" customModule="Insecurity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JCN-kv-PoH"/>
                         <viewControllerLayoutGuide type="bottom" id="hWN-GU-CaJ"/>
@@ -118,10 +118,25 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cells" id="gFc-84-mlg">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFc-84-mlg" id="xS8-KQ-DsJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="portLabel" destination="8Q9-Vk-tFv" id="80N-VV-5KQ"/>
+                        <outlet property="serviceNameLabel" destination="7kH-BQ-HYP" id="2pU-mH-tNv"/>
+                        <outlet property="tableView" destination="9Gh-nF-p4s" id="fWg-xu-Ptv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ql-4J-lJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

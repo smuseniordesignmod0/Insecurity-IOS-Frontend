@@ -35,6 +35,7 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var routerReport: RouterModel?
     var cveReport: CVEModel?
+    var serviceReport: ServiceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,7 +137,8 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let vc = segue.destination as! DetailReportViewController
             vc.cveReport = self.cveReport
         } else if segue.identifier == "viewPortReport" {
-            
+            let vc = segue.destination as! PortViewController
+            vc.serviceReport = self.serviceReport
         }
     }
 
