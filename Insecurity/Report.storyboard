@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ql-4J-lJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2744.8000000000002" y="1704.1979010494754"/>
+            <point key="canvasLocation" x="2783" y="1764"/>
         </scene>
         <!--Router View Controller-->
         <scene sceneID="bzM-vm-yUe">
@@ -291,6 +291,7 @@
                         <outlet property="osLabel" destination="RaF-HX-6xV" id="2wP-bd-sRQ"/>
                         <outlet property="servicesLabel" destination="OKg-lo-Mrs" id="AoD-Mw-Cbr"/>
                         <outlet property="tableView" destination="HFB-QN-nnA" id="GZC-0R-iyo"/>
+                        <segue destination="FEQ-gA-Lpp" kind="show" identifier="portView" id="OL9-8F-bex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vo-k5-RNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -370,4 +371,7 @@
             <point key="canvasLocation" x="3544.8000000000002" y="946.77661169415296"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OL9-8F-bex"/>
+    </inferredMetricsTieBreakers>
 </document>

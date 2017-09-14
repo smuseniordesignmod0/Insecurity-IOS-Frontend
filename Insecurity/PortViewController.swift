@@ -31,7 +31,7 @@ class PortViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     fileprivate func prepareLabels() {
-        //serviceNameLabel.text = "Service Name: " + (serviceReport?.serviceName)!
+        serviceNameLabel.text = "Service Name: " + (serviceReport?.serviceName)!
         portLabel.text = "Port: " +  String(describing: serviceReport?.port)
     }
     
