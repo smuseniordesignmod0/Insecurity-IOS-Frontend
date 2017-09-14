@@ -77,6 +77,7 @@ class ViewController: UIViewController {
 
     @IBAction func scanButtonPressed(_ sender: Any) {
         readJson()
+        //scan()
         scanButton.isUserInteractionEnabled = false
         scanButton.setTitle("Scanning", for: .normal)
         progressBar.setProgress(value: 100, animationDuration: 4.0) {
@@ -99,13 +100,14 @@ class ViewController: UIViewController {
     }
     
     fileprivate func scan(){
-        Alamofire.request("http://api.insecurity/Scan/id/Report").responseJSON { response in
+        Alamofire.request("http://192.168.1.4/Scan/1/Report").responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             print("Working")
             
-            if let json = response.result.value {
+            if let json = response.result.value as? [String: Any] {
+                self.report = ReportModel(JSON: json)
                 print("JSON: \(json)") // serialized json response
             }
             
@@ -114,25 +116,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-//   fileprivate func loadJson(forFilename fileName: String){
-//        
-//        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
-//            if let data = NSData(contentsOf: url) {
-//                do {
-//                   // let dictionary = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
-//                    
-//                    report?.mapping(map: data as! Map)
-//                    
-//    
-//                } catch {
-//                    print("Error!! Unable to parse  \(fileName).json")
-//                }
-//            }
-//            print("Error!! Unable to load  \(fileName).json")
-//        }
-//    
-//    }
     
     fileprivate func readJson() {
         do {

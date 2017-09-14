@@ -20,8 +20,9 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var deviceReport:DeviceReportModel?
+    var serviceReport: ServiceModel?
     
-    let section = ["Open Ports"]
+    let section = ["Services"]
     let items = [["Port 1", "Port 2", "Port 3"]]
     
     override func viewDidLoad() {
@@ -84,6 +85,27 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
         view.tintColor = .inBlue
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = .white
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
+        
+        if indexPath.section == 0 {
+            self.serviceReport = self.deviceReport?.services?[indexPath.row]
+            performSegue(withIdentifier: "portView", sender: cell)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "portView") {
+            let vc = segue.destination as! PortViewController
+            vc.serviceReport = self.serviceReport
+        }
     }
 
 }

@@ -35,6 +35,7 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var routerReport: RouterModel?
     var cveReport: CVEModel?
+    var serviceReport: ServiceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +122,7 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.cveReport = self.routerReport?.hostCVE?[indexPath.row]
             performSegue(withIdentifier: "viewCVEReport", sender: cell)
         } else if indexPath.section == 0 {
+            self.serviceReport = self.routerReport?.services?[indexPath.row]
             performSegue(withIdentifier: "viewPortReport", sender: cell)
         }
     }
@@ -136,7 +138,8 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let vc = segue.destination as! DetailReportViewController
             vc.cveReport = self.cveReport
         } else if segue.identifier == "viewPortReport" {
-            
+            let vc = segue.destination as! PortViewController
+            vc.serviceReport = self.serviceReport
         }
     }
 
