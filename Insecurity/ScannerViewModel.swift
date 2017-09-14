@@ -13,6 +13,7 @@ import Alamofire
 class ScannerViewModel : NSObject {
     
     var scan: ScanModel?
+    var report: ReportModel?
 
 func startScan() -> Int
 {
@@ -32,9 +33,9 @@ func startScan() -> Int
 func getScanProgress() -> Int
 {
     var status: ScanStatusModel?
-    let parameters : Parameters = ["id": scan?.id]
+    let parameters : Parameters = ["id": scan?.id ?? 0]
     
-    Alamofire.request("https://private-anon-a5ee7e6284-insecurityapi.apiary-mock.com/Scan//Status", parameters: parameters, encoding: URLEncoding.httpBody).responseJSON
+    Alamofire.request("https://private-anon-a5ee7e6284-insecurityapi.apiary-mock.com/Scan//Status", parameters: parameters).responseJSON
         { response in
             if let json = response.result.value as? [String : Any]
             {
@@ -48,6 +49,15 @@ func getScanProgress() -> Int
 
 func getResults()
 {
+    let parameters : Parameters = ["id": scan?.id ?? 0]
+
+    Alamofire.request("https://private-anon-a5ee7e6284-insecurityapi.apiary-mock.com/Scan//Report", parameters: parameters).responseJSON
+    { response in
+        if let json = response.result.value as? [String : Any]
+        {
+            self.report = ReportModel(JSON: json)
+        }
+    }
     
 }
 
