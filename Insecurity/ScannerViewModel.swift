@@ -48,7 +48,6 @@ func getScanProgress() -> Int
         }
     
     return (status?.progress)!
-
 }
 
 func getResults()
