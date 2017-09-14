@@ -14,6 +14,10 @@ class ScannerViewModel : NSObject {
     
     var scan: ScanModel?
     var report: ReportModel?
+    
+    override init() {
+        
+    }
 
 func startScan() -> Int
 {
@@ -60,5 +64,27 @@ func getResults()
     }
     
 }
+    
+     func readJson() {
+        do {
+            if let file = Bundle.main.url(forResource: "mock_report", withExtension: "json") {
+                let data = try Data(contentsOf: file)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if let object = json as? [String: Any] {
+                    // json is a dictionary
+                    report = ReportModel(JSON: object)
+                } else if let object = json as? [Any] {
+                    // json is an array
+                    print(object)
+                } else {
+                    print("JSON is invalid")
+                }
+            } else {
+                print("no file")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 
 }

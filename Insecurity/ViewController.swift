@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewReportButton: MDCRaisedButton!
     
     var report : ReportModel?
+    var scanner: ScannerViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ class ViewController: UIViewController {
         prepareViewReportButton()
         scoreView.isHidden = true
         historyButton.tintColor = .inBlue
+        
+        scanner = ScannerViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,8 +79,7 @@ class ViewController: UIViewController {
     
 
     @IBAction func scanButtonPressed(_ sender: Any) {
-        readJson()
-        //scan()
+
         scanButton.isUserInteractionEnabled = false
         scanButton.setTitle("Scanning", for: .normal)
         progressBar.setProgress(value: 100, animationDuration: 4.0) {
@@ -117,27 +119,6 @@ class ViewController: UIViewController {
         }
     }
     
-    fileprivate func readJson() {
-        do {
-            if let file = Bundle.main.url(forResource: "mock_report", withExtension: "json") {
-                let data = try Data(contentsOf: file)
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let object = json as? [String: Any] {
-                    // json is a dictionary
-                    report = ReportModel(JSON: object)
-                } else if let object = json as? [Any] {
-                    // json is an array
-                    print(object)
-                } else {
-                    print("JSON is invalid")
-                }
-            } else {
-                print("no file")
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ReportViewController {
