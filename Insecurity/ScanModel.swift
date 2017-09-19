@@ -11,7 +11,7 @@ import ObjectMapper
 
 struct ScanModel: Mappable {
     
-    var id: Int?
+    var id: String?
     
     init?(map: Map) {
         

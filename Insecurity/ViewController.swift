@@ -29,6 +29,9 @@ class ViewController: UIViewController {
     
     var report : ReportModel?
     var scanner: ScannerViewModel?
+    var scanModel: ScanModel?
+    var timer = Timer()
+    var id: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,30 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc fileprivate func getScanUpdate() {
+        scanner?.getScanProgress(id: id!) { responseObject, error in
+            // use responseObject and error here
+            let temp = ScanStatusModel(JSON: responseObject!)
+            if temp?.progress == 100 {
+                self.report = self.scanner?.report
+                self.progressBar.setProgress(value: 100, animationDuration: 1.0) {
+                    print("Done animating!")
+                    
+                    self.timer.invalidate()
+                    self.scanner?.getResults(id: self.id!) { responseObject, error in
+                        self.report = ReportModel(JSON: responseObject!)
+                        self.scoreView.isHidden = false
+                        self.scoreLabel.text = "Your Network Security Score: " + (self.report?.vulnerabilityGrade)!
+                        self.scanButton.isUserInteractionEnabled = true
+                    }
+                }
+            } else {
+                self.progressBar.setProgress(value: CGFloat((temp?.progress!)!), animationDuration: 1)
+            }
+        }
+        
     }
     
     fileprivate func prepareScanButton() {
@@ -79,47 +106,32 @@ class ViewController: UIViewController {
     
 
     @IBAction func scanButtonPressed(_ sender: Any) {
-
+        scanner?.startScan { responseObject, error in
+            // use responseObject and error here
+            self.scanModel = ScanModel(JSON: responseObject!)
+            self.id = self.scanModel?.id
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.getScanUpdate), userInfo: nil, repeats: true)
+            
+        }
+        
+        //self.report =  scanner?.report
         scanButton.isUserInteractionEnabled = false
         scanButton.setTitle("Scanning", for: .normal)
-        progressBar.setProgress(value: 100, animationDuration: 4.0) {
-            print("Done animating!")
-            self.scoreView.isHidden = false
-            self.scoreLabel.text = "Your Network Security Score: " + (self.report?.vulnerabilityGrade)!
-            self.scanButton.isUserInteractionEnabled = true
-        }
+
     }
     
     
     @IBAction func newScanButtonPressed(_ sender: Any) {
+        timer.invalidate()
         scoreView.isHidden = true
         scanButton.isUserInteractionEnabled = false
-         scanButton.setTitle("Scan", for: .normal)
+        scanButton.setTitle("Scan", for: .normal)
         progressBar.setProgress(value: 0, animationDuration: 1) {
             self.scanButton.isUserInteractionEnabled = true
         }
         
     }
-    
-    fileprivate func scan(){
-        Alamofire.request("http://192.168.1.4/Scan/1/Report").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            print("Working")
-            
-            if let json = response.result.value as? [String: Any] {
-                self.report = ReportModel(JSON: json)
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-        }
-    }
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ReportViewController {
             vc.report = self.report
