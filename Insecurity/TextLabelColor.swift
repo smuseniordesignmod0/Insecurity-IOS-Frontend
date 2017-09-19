@@ -16,7 +16,7 @@ func addMultipleColorsTo(text: String?, location: Int, length:Int) -> NSMutableA
     if text != nil {
          myMutableString = NSMutableAttributedString(string: text!, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])
         myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSRange(location: location, length: length))
-        myMutableString.addAttribute(NSFontAttributeName, value: UIFont(name: "Helvetica-Bold", size: 17.0)!, range: NSRange(location: location, length: length))
+        myMutableString.addAttribute(NSFontAttributeName, value: UIFont(name: "Helvetica", size: 17.0)!, range: NSRange(location: location, length: length))
     } else {
          myMutableString = NSMutableAttributedString(string: "", attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 17.0)!])
     }

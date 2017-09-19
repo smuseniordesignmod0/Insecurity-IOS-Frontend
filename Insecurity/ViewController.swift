@@ -45,6 +45,8 @@ class ViewController: UIViewController {
         historyButton.tintColor = .inBlue
         
         scanner = ScannerViewModel()
+        
+        self.navigationController?.navigationBar.tintColor = .inBlue
     }
 
     override func didReceiveMemoryWarning() {

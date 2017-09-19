@@ -20,6 +20,7 @@ class DetailReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareLabels()
+        self.title = "CVE Report"
     }
     
     func prepareLabels(){

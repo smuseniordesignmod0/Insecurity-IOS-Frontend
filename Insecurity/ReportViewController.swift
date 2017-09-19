@@ -119,6 +119,8 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
+        cell.textLabel?.textColor = .lightGray
+        
         if indexPath.section == 0 {
             cell.textLabel?.text = self.report?.devices?[indexPath.row].ip
         } 

@@ -29,6 +29,7 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         prepareTableView()
         prepareLabels()
+        self.title = "Device Report"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +89,10 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
-        cell.textLabel?.text = "Port: " + String(describing: self.deviceReport!.services![indexPath.row].port!)
+        let port = "Port: " + String(describing: self.deviceReport!.services![indexPath.row].port!)
+        
+        cell.textLabel?.textColor = .lightGray
+        cell.textLabel?.attributedText = addMultipleColorsTo(text: port, location: 0, length: 5)
                 
         return cell
     }

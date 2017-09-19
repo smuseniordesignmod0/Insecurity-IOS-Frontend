@@ -41,6 +41,7 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         prepareTableView()
         prepareLabels()
+        self.title = "Router Report"
 
     }
     
@@ -113,10 +114,14 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
+        cell.textLabel?.textColor = .lightGray
+        
         if indexPath.section == 0 {
-            cell.textLabel?.text = "Port: " + String(describing: (self.routerReport?.services?[indexPath.row].port!)!)
+            let port = "Port: " + String(describing: (self.routerReport?.services?[indexPath.row].port)!)
+            cell.textLabel?.attributedText = addMultipleColorsTo(text: port, location: 0, length: 5)
         } else if indexPath.section == 1 {
-            cell.textLabel?.text = "ID: " +  (self.routerReport?.hostCVE?[indexPath.row].vulnID)!
+            let id = "ID: " +  (self.routerReport?.hostCVE?[indexPath.row].vulnID)!
+            cell.textLabel?.attributedText = addMultipleColorsTo(text: id, location: 0, length: 3)
         }
         
         return cell

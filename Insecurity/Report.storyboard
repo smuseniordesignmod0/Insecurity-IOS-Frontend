@@ -22,23 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Netwrok Garde:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lth-t0-gZf">
-                                <rect key="frame" x="16" y="72" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Netwrok Garde:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lth-t0-gZf">
+                                <rect key="frame" x="16" y="82" width="235" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overall Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R47-yr-1mp">
-                                <rect key="frame" x="16" y="112" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rgS-N8-aDk">
-                                <rect key="frame" x="0.0" y="189" width="375" height="478"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rgS-N8-aDk">
+                                <rect key="frame" x="0.0" y="153" width="375" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cells" id="r9q-6s-fWj">
@@ -55,16 +46,41 @@
                                     <outlet property="delegate" destination="JEH-Jy-8E7" id="KIe-Rj-qSO"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye9-Ut-Y9E" customClass="MDCRaisedButton">
-                                <rect key="frame" x="16" y="141" width="100" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye9-Ut-Y9E" customClass="MDCRaisedButton">
+                                <rect key="frame" x="259" y="72" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KTV-Wc-0F5"/>
+                                    <constraint firstAttribute="width" constant="100" id="uck-B0-amb"/>
+                                </constraints>
                                 <state key="normal" title="Router"/>
                                 <connections>
                                     <segue destination="CwS-Pu-t8E" kind="show" identifier="routerView" id="ChX-ne-iof"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R47-yr-1mp">
+                                <rect key="frame" x="16" y="124" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R47-yr-1mp" firstAttribute="trailing" secondItem="1gq-Bf-pbT" secondAttribute="trailingMargin" id="2FI-1e-efV"/>
+                            <constraint firstItem="lth-t0-gZf" firstAttribute="leading" secondItem="1gq-Bf-pbT" secondAttribute="leadingMargin" id="6Ip-Ud-QhJ"/>
+                            <constraint firstItem="Ye9-Ut-Y9E" firstAttribute="top" secondItem="akS-XH-gkw" secondAttribute="bottom" constant="8" id="72d-04-gP8"/>
+                            <constraint firstItem="lth-t0-gZf" firstAttribute="top" secondItem="akS-XH-gkw" secondAttribute="bottom" constant="18" id="G4q-Vu-01h"/>
+                            <constraint firstItem="Ye9-Ut-Y9E" firstAttribute="leading" secondItem="lth-t0-gZf" secondAttribute="trailing" constant="8" id="SBf-Qo-MmS"/>
+                            <constraint firstItem="lth-t0-gZf" firstAttribute="centerY" secondItem="Ye9-Ut-Y9E" secondAttribute="centerY" id="SoZ-9q-aOu"/>
+                            <constraint firstItem="R47-yr-1mp" firstAttribute="leading" secondItem="1gq-Bf-pbT" secondAttribute="leadingMargin" id="WFU-pe-IOp"/>
+                            <constraint firstItem="Ye9-Ut-Y9E" firstAttribute="trailing" secondItem="1gq-Bf-pbT" secondAttribute="trailingMargin" id="gF6-5m-5KW"/>
+                            <constraint firstAttribute="trailing" secondItem="rgS-N8-aDk" secondAttribute="trailing" id="oNQ-wt-J7t"/>
+                            <constraint firstItem="sgf-fi-Ooo" firstAttribute="top" secondItem="rgS-N8-aDk" secondAttribute="bottom" id="oPY-6i-JDX"/>
+                            <constraint firstItem="Ye9-Ut-Y9E" firstAttribute="leading" secondItem="lth-t0-gZf" secondAttribute="trailing" constant="8" id="sjm-X4-2VZ"/>
+                            <constraint firstItem="R47-yr-1mp" firstAttribute="top" secondItem="lth-t0-gZf" secondAttribute="bottom" constant="21" id="uQh-Js-ELZ"/>
+                            <constraint firstItem="rgS-N8-aDk" firstAttribute="top" secondItem="R47-yr-1mp" secondAttribute="bottom" constant="8" id="uyB-6y-gJX"/>
+                            <constraint firstItem="rgS-N8-aDk" firstAttribute="leading" secondItem="1gq-Bf-pbT" secondAttribute="leading" id="yFR-i5-3Gc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Network Report" id="68q-Qo-UcV">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="zUo-1t-tFG">

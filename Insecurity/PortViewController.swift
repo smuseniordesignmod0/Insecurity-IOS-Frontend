@@ -24,6 +24,7 @@ class PortViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         prepareTableView()
         prepareLabels()
+        self.title = "Port Report"
     }
     
     fileprivate func prepareTableView() {
@@ -76,7 +77,10 @@ class PortViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath as IndexPath)
         cell.selectionStyle = .none
         
-        cell.textLabel?.text = "CVE Score: " + String(describing: self.serviceReport!.serviceCVE![indexPath.row].vulnID!)
+        cell.textLabel?.textColor = .lightGray
+        
+        let id = "ID: " + String(describing: self.serviceReport!.serviceCVE![indexPath.row].vulnID!)
+        cell.textLabel?.attributedText = addMultipleColorsTo(text: id, location: 0, length: 3)
         
         return cell
     }
