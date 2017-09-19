@@ -32,6 +32,7 @@
 		C0B6404F1F69CC3600FAFE26 /* DetailReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B6404E1F69CC3600FAFE26 /* DetailReportViewController.swift */; };
 		C0B640511F69D7A100FAFE26 /* PortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B640501F69D7A100FAFE26 /* PortViewController.swift */; };
 		C0B640541F69D86600FAFE26 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B640531F69D86600FAFE26 /* ScannerViewModel.swift */; };
+		C0B77F811F70DD9300029E46 /* TextLabelColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B77F801F70DD9300029E46 /* TextLabelColor.swift */; };
 		C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */; };
 		C0D4C3F91F5C9E340013AFDF /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4C3F71F5C9E340013AFDF /* History.storyboard */; };
 		C0D4C3FB1F5C9E5C0013AFDF /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */; };
@@ -90,6 +91,7 @@
 		C0B6404E1F69CC3600FAFE26 /* DetailReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReportViewController.swift; sourceTree = "<group>"; };
 		C0B640501F69D7A100FAFE26 /* PortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortViewController.swift; sourceTree = "<group>"; };
 		C0B640531F69D86600FAFE26 /* ScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		C0B77F801F70DD9300029E46 /* TextLabelColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLabelColor.swift; sourceTree = "<group>"; };
 		C0D4C3F01F5C95BC0013AFDF /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		C0D4C3F81F5C9E340013AFDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
 		C0D4C3FA1F5C9E5C0013AFDF /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		C0A960E01F57C710008B8DD0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0B77F801F70DD9300029E46 /* TextLabelColor.swift */,
 				C0A960E11F57C71E008B8DD0 /* Colors.swift */,
 			);
 			name = Extensions;
@@ -583,6 +586,7 @@
 				02FD27BA1F6A02EF00590624 /* ScanModel.swift in Sources */,
 				C0D4C3F11F5C95BC0013AFDF /* HistoryViewController.swift in Sources */,
 				C0A960E41F57CEBD008B8DD0 /* DeviceReportViewController.swift in Sources */,
+				C0B77F811F70DD9300029E46 /* TextLabelColor.swift in Sources */,
 				C062E2EC1F67479A0036DEDF /* ServiceModel.swift in Sources */,
 				C0B640541F69D86600FAFE26 /* ScannerViewModel.swift in Sources */,
 				C0B640511F69D7A100FAFE26 /* PortViewController.swift in Sources */,

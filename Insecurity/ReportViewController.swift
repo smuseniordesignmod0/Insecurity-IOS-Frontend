@@ -78,8 +78,15 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     fileprivate func prepareLabels() {
-        scoreLabel.text = "Overall Score: " + String(describing: (report?.vulnerabilityScore)!)
-        gradeLabel.text = "Network Grade: " + (report?.vulnerabilityGrade)!
+         let score = "Overall Score: " + String(describing: (report?.vulnerabilityScore)!)
+         let grade = "Network Grade: " + (report?.vulnerabilityGrade)!
+        
+         scoreLabel.textColor = .lightGray
+         scoreLabel.attributedText = addMultipleColorsTo(text: score, location: 0, length: 14)
+       
+        gradeLabel.textColor = .lightGray
+        gradeLabel.attributedText = addMultipleColorsTo(text: grade, location: 0, length: 14)
+        
     }
     
     // MARK: - Table view data source and delegate

@@ -106,17 +106,24 @@ class ViewController: UIViewController {
     
 
     @IBAction func scanButtonPressed(_ sender: Any) {
-        scanner?.startScan { responseObject, error in
-            // use responseObject and error here
-            self.scanModel = ScanModel(JSON: responseObject!)
-            self.id = self.scanModel?.id
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.getScanUpdate), userInfo: nil, repeats: true)
-            
-        }
+//        scanner?.startScan { responseObject, error in
+//            // use responseObject and error here
+//            self.scanModel = ScanModel(JSON: responseObject!)
+//            self.id = self.scanModel?.id
+//            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.getScanUpdate), userInfo: nil, repeats: true)
+//            
+//        }
         
-        //self.report =  scanner?.report
-        scanButton.isUserInteractionEnabled = false
-        scanButton.setTitle("Scanning", for: .normal)
+        self.scanButton.isUserInteractionEnabled = false
+        self.scanButton.setTitle("Scanning", for: .normal)
+        
+        self.scanner?.readJson()
+        self.report =  scanner?.report
+        self.progressBar.setProgress(value: 100, animationDuration: 1.0) {
+            self.scoreView.isHidden = false
+            self.scoreLabel.text = "Your Network Security Score: " + (self.report?.vulnerabilityGrade)!
+            self.scanButton.isUserInteractionEnabled = true
+        }
 
     }
     

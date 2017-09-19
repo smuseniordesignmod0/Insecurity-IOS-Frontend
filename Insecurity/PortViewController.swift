@@ -32,8 +32,15 @@ class PortViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     fileprivate func prepareLabels() {
-        serviceNameLabel.text = "Service Name: " + (serviceReport?.serviceName)!
-        portLabel.text = "Port: " +  String(describing: serviceReport?.port)
+        
+        let serviceName = "Service Name: " + (serviceReport?.serviceName)!
+        let port = "Port: " +  String(describing: (serviceReport?.port)!)
+        
+        serviceNameLabel.textColor = .lightGray
+        serviceNameLabel.attributedText = addMultipleColorsTo(text: serviceName, location: 0, length: 13)
+        
+        portLabel.textColor = .lightGray
+        portLabel.attributedText = addMultipleColorsTo(text: port, location: 0, length: 5)
     }
     
     

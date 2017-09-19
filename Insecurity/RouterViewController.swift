@@ -58,10 +58,22 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     fileprivate func prepareLabels() {
-        scoreLabel.text = "Security Score: " + String(describing: (routerReport?.vulnerabilityScore)!)
-        vendorLabel.text = "Vendor: " + (routerReport?.vendor)!
-        macLabel.text = "MAC Address: " + (routerReport?.macAddress)!
-        ipLabel.text = "IP Address: " + (routerReport?.ip)!
+        let score = "Security Score: " + String(describing: (routerReport?.vulnerabilityScore)!)
+        let vendor = "Vendor: " + (routerReport?.vendor)!
+        let mac = "MAC Address: " + (routerReport?.macAddress)!
+        let ip = "IP Address: " + (routerReport?.ip)!
+        
+        scoreLabel.textColor = .lightGray
+        scoreLabel.attributedText = addMultipleColorsTo(text: score, location: 0, length: 15)
+        
+        vendorLabel.textColor = .lightGray
+        vendorLabel.attributedText = addMultipleColorsTo(text: vendor, location: 0, length: 7)
+        
+        macLabel.textColor = .lightGray
+        macLabel.attributedText = addMultipleColorsTo(text: mac, location: 0, length: 12)
+        
+        ipLabel.textColor = .lightGray
+        ipLabel.attributedText = addMultipleColorsTo(text: ip, location: 0, length: 11)
         
     }
     
@@ -102,7 +114,7 @@ class RouterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.selectionStyle = .none
         
         if indexPath.section == 0 {
-            cell.textLabel?.text = "Port: " + String(describing: self.routerReport?.services?[indexPath.row].port)
+            cell.textLabel?.text = "Port: " + String(describing: (self.routerReport?.services?[indexPath.row].port!)!)
         } else if indexPath.section == 1 {
             cell.textLabel?.text = "ID: " +  (self.routerReport?.hostCVE?[indexPath.row].vulnID)!
         }

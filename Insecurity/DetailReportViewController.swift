@@ -23,9 +23,19 @@ class DetailReportViewController: UIViewController {
     }
     
     func prepareLabels(){
+        let score = "Security Score: " + String(describing: (cveReport?.CVSSSeverity)!)
+        let id = "ID: " + (cveReport?.vulnID)!
+        
+        summaryTextView.textColor = .lightGray
+        summaryTextView.font = UIFont(name: "Helvetica", size: 17)
         summaryTextView.text = cveReport?.summary
         summaryTextView.isUserInteractionEnabled = false
-        scoreLabel.text = "Security Score: " + String(describing: cveReport?.CVSSSeverity!)
-        //idLabel.text = "ID: " + (cveReport?.vulnID)!
+        
+        scoreLabel.textColor = .lightGray
+        scoreLabel.attributedText = addMultipleColorsTo(text: score, location: 0, length: 15)
+        
+        
+        idLabel.textColor = .lightGray
+        idLabel.attributedText = addMultipleColorsTo(text: id, location: 0, length: 3)
     }
 }

@@ -42,10 +42,22 @@ class DeviceReportViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     fileprivate func prepareLabels() {
-        ipLabel.text = "IP: " + (deviceReport?.ip)!
-        macLabel.text = "Mac Address: " + (deviceReport?.macAddress)!
-        servicesLabel.text = "Service: " + deviceReport!.services![0].serviceName!
-        osLabel.text = "Accuracy: " + String(describing: deviceReport!.idAccuracy!)
+        let ip = "IP: " + (deviceReport?.ip)!
+        let mac = "Mac Address: " + (deviceReport?.macAddress)!
+        let service = "Service: " + deviceReport!.services![0].serviceName!
+        let accuracy = "Accuracy: " + String(describing: (deviceReport?.idAccuracy)!)
+        
+        ipLabel.textColor = .lightGray
+        ipLabel.attributedText = addMultipleColorsTo(text: ip, location: 0, length: 3)
+        
+        macLabel.textColor = .lightGray
+        macLabel.attributedText = addMultipleColorsTo(text: mac, location: 0, length: 12)
+        
+        servicesLabel.textColor = .lightGray
+        servicesLabel.attributedText = addMultipleColorsTo(text: service, location: 0, length: 8)
+        
+        osLabel.textColor = .lightGray
+        osLabel.attributedText = addMultipleColorsTo(text: accuracy, location: 0, length: 9)
  
     }
     
